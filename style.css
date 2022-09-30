@@ -1,0 +1,166 @@
+body {
+background: white;
+padding-left: 80px;
+padding-right: 80px;
+}
+.chebur {
+    display : flex;
+    text-align: -webkit-center;
+    position: relative;
+    left: 150px;
+    right: 150px;
+}
+.cheburFoto {
+    width: 300px;
+    height: 300px;
+    padding-top: 20px; 
+    position: relative; 
+}
+
+.input-number {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #E5E8EE;
+    box-sizing: border-box;
+    border-radius: 6px;
+    color: #424348;
+    font-size: 14px;
+    text-align: center;
+    width: calc(33px * 3);
+}
+
+.input-number_input {
+    background: #E5E8EE;
+    width: 32px;
+    height: 32px;
+    border: none;
+    padding: 8px;
+    text-align: center;
+}
+
+.input-number_minus,
+.input-number_plus {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.input-number {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #E5E8EE;
+    box-sizing: border-box;
+    border-radius: 6px;
+    color: #424348;
+    font-size: 14px;
+    text-align: center;
+    
+}
+
+.input-number_input {
+    background: #E5E8EE;
+    width: 32px;
+    height: 32px;
+    border: none;
+    padding: 8px;
+    text-align: center;
+}
+
+.input-number_minus,
+.input-number_plus {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+.btnCart {
+    background: green;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    
+}
+.ingrid {
+    display: flex;
+    text-align: -webkit-center;
+    position: relative;
+    left: 150px;
+    right: 150px;
+}
+.productCart {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 20px;
+} 
+.countCart {
+    font: black;
+}
+.logoChebur {
+    width: 50px;
+    height: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+header {
+    display: flex;
+    background: grey;
+}
+a {
+    color: black;
+    margin-left: 380px;
+    text-decoration: none;
+}
+.nameShop {
+    color: red;
+    font-size: 50px;
+    font-weight: bold;
+    padding-left: 100px;
+    position: relative;
+    left: 200px;
+}
+.slider {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    left: 180px;
+    right: 180px;
+    margin-top: 20px;
+}
+.img.now {
+    display: block;
+}
+.img {
+    display: none;
+}
+.sliderfoto {
+    width: 800px;
+    height: 450px
+}
+.prev,
+.next {
+    position: relative;
+   
+}
+.btnSlPrev {
+    position: absolute;
+    top: 180px;
+    left: -290px;
+}
+.btnSlNext {
+    position: absolute;
+    bottom: 290px;
+    right: 150px;
+}
