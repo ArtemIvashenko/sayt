@@ -1,0 +1,26 @@
+{
+    "12568" : {
+        "name": "Чебурек с телятиной",
+        "cost": 65,
+        "description":"Чебурек с телятиной",
+        "images":"cheburek.jpg"
+    },
+    "13568" : {
+         "name": "Чебурек со свининой",
+        "cost": 65,
+        "description":"Чебурек со свинины",
+        "images":"cheburek.jpg"
+    },
+    "14568" : {
+        "name": "Чебурек с курицей",
+        "cost": 65,
+        "description":" Чебурек с филе курици",
+        "images":"cheburek.jpg"
+    },
+    "15568" : {
+        "name": "Чебурек с курицей",
+        "cost": 65,
+        "description":"Чебурек с филе курици",
+        "images":"cheburek.jpg" 
+    }
+}

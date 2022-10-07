@@ -4,11 +4,12 @@ padding-left: 80px;
 padding-right: 80px;
 }
 .chebur {
-    display : flex;
+    display : block;
     text-align: -webkit-center;
     position: relative;
     left: 150px;
     right: 150px;
+    width: 990px;
 }
 .cheburFoto {
     width: 300px;
@@ -52,7 +53,7 @@ padding-right: 80px;
 
 
 .input-number {
-    display: flex;
+    display: inline-block;
     align-items: center;
     background: #FFFFFF;
     border: 1px solid #E5E8EE;
@@ -61,7 +62,7 @@ padding-right: 80px;
     color: #424348;
     font-size: 14px;
     text-align: center;
-    
+    margin-inline: 20px;
 }
 
 .input-number_input {
@@ -77,7 +78,7 @@ padding-right: 80px;
 .input-number_plus {
     width: 32px;
     height: 32px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -90,6 +91,8 @@ padding-right: 80px;
     padding-top: 5px;
     padding-bottom: 5px;
     font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
     
 }
 .ingrid {
@@ -100,9 +103,13 @@ padding-right: 80px;
     right: 150px;
 }
 .productCart {
+    display: inline-block;
     font-weight: bold;
     font-size: 20px;
     margin-left: 20px;
+    border-style: ridge;
+    border-radius: 20px;
+    margin-top: 20px;
 } 
 .countCart {
     font: black;
@@ -163,4 +170,41 @@ a {
     position: absolute;
     bottom: 290px;
     right: 150px;
+}
+.cart {
+    width:50px;
+    height: 50
+}
+.cartGoods.cartAdd {
+    width: 450px;
+    height: 450px;
+    background:peachpuff;
+    display: block;
+    position: absolute;
+    top: 225px;
+    left: 450px;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.goods {
+    display: flex;
+}
+.fotoCartGoods{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: 40px;
+    padding: 25px;
+}
+.myCart {
+    display: block;
+}
+.cartgoods{
+    display: block;
+}
+h{
+    display: inline;
+}
+h3{
+    display:inline;
 }
