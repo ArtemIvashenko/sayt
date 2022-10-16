@@ -60,26 +60,7 @@ let goods =
         $('.btnCart').on('click',addToCart);
        
     }
-    function loadGoodsuk(){
-        let out ='<div class ="chebur">';
-            for (let key in goods){
-            
-                out+= '<div class ="productCart">';
-                out+= '<h3>' + goods[key]['name'] + '</h3>'; 
-                out+= '<h> Цена :'+ goods[key]['cost'] + 'грн</h>';
-                out+= '<p>' + goods[key]['description']+ '</p>';
-                out+= '<img class="cheburFoto" src="'+goods[key].images +'">';
-                out+= '<button class ="btnCart" goods-art ="' +key+ '"> Добавить в корзину </button>';
-                out+= '</div>';
-            
-                console.log(out);
-                console.log(goods);
-            }
-        out+= '</div>';
-        $('.goods').html(out);
-        $('.btnCart').on('click',addToCart);
-       
-    }
+    
     function addToCart(){
          let articul = $(this).attr('goods-art');
          if (cart[articul] !== undefined){
@@ -88,7 +69,7 @@ let goods =
              cart[articul] = 1;
          }
          localStorage.setItem('cart',JSON.stringify(cart));
-         showCart();
+        showCart();
     }       
     function checkCart(){
         if (localStorage.getItem('cart') !==null) {
@@ -96,7 +77,7 @@ let goods =
         }
     } 
    
-    function showCart(){
+   function showCart(){
         let cartOut = '';
        //  let count = cart[articul];
 
@@ -106,8 +87,6 @@ let goods =
              cartOut+='<h3>' + goods[key]['name'] + '</h3>';
              cartOut+='<h> Цена :'+ goods[key]['cost'] + '</h>';
              cartOut+='<h> Количество :'+ cart[key] + '</h>';
-           
-
              cartOut+= '<div class ="input-number">';
              cartOut+= '<div class ="input-number_minus" goods-art="'+key+'">-</div>';
              cartOut+= '<input class ="input-number_input" type ="text" value ="1">';
@@ -137,17 +116,12 @@ $(document).ready(function(){
     loadGoods();
     checkCart();
     showCart();
+    
 
     $('.cart').click(function() {
         window.location.href ='file:///home/artem/test/sayt/cart.html';
     });
     
-  /*  $('.cart').hover(function() {
-        let cartGoods = $('.cartGoods');
-        cartGoods.addClass('cartAdd');
-        console.log(cart);
-        $('.cartGoods.cartAdd').toggle();
-    });*/
     
     $('.next').click(function (){
         let curryImage = $('.img.now');

@@ -1,4 +1,5 @@
 let cart = {};
+
 let goods = 
         {
     "12568" : {
@@ -28,7 +29,7 @@ let goods =
     "16568" : {
         "name": "Соус острый",
         "cost": 10,
-        "description":"Соус красный 70грм",
+        "description":"Соус красный 70гр",
         "images":"img/sousred.jpg" 
     },
     "17568" : {
@@ -38,8 +39,6 @@ let goods =
         "images":"img/sousWhite.jpg" 
     }
 };
-checkCart();
-showCart();
     function checkCart(){
         if (localStorage.getItem('cart') !==null) {
             cart = JSON.parse(localStorage.getItem('cart'));
@@ -49,24 +48,77 @@ showCart();
     
     function showCart(){
         let cartOut = '';
-       //  let count = cart[articul];
+        let result =0;
+        let cartIm=0;
 
         for (let key in cart){
-            cartOut+= '<button class="btnDelGoods">X</button>';
+            cartOut+= '<button class="btnDelGoods" btnDel ="' +key+ '">X</button>';
             
             cartOut+= '<img class="fotoCartGoods"  src="'+goods[key].images +'">';
+            cartOut+= '<div class="nameCartGoods">';
             cartOut+='<h3>' + goods[key]['name'] + '</h3>';
+            cartOut+= '</div >';
             cartOut+= '<div class ="input-number">';
-            cartOut+= '<div class ="input-number_minus" goods-art="'+key+'">-</div>';
-            cartOut+='<h> '+ cart[key] + '</h>';
-            cartOut+= '<div class ="input-number_plus" data-id ="sis23">+</div>';
-            cartOut+= '</div>';
+            cartOut+= '<div class ="input-number_minus" minus="'+key+'">-</div>';
+            cartOut+='<h> '+ cart[key] + ' </h>';
+            cartOut+= '<div class ="input-number_plus" plus = "'+key+'">+</div>';
+            cartOut+= '</div>';     
             cartOut+='<h> Цена :'+ goods[key]['cost'] + '</h>';
             cartOut+='<h> Итого:' + cart[key] * goods[key]['cost'] +'</h>';
+            result+= + cart[key] * goods[key]['cost'] ;
             cartOut+='<br>';
-            
+            cartIm +=cart[key];
+            console.log(result); 
          }
-          $('.myCart').html(cartOut);
-               //   $('.input-number_minus').on('click', minusGoods);
-               //   $('.input-number_plus').on('click', plusGoods);
+               cartOut+= '<div class="done" >'; 
+               cartOut+='<h3> Сумма заказа:' +result+'</h3>';
+               cartOut+= '<button class="btnDone" >Заказать </button>'; 
+               cartOut+= '</div>'; 
+           
+               
+                   $('.cartnumber').html(cartIm);
+                  $('.myCart').html(cartOut);
+                  $('.input-number_plus').on('click', plusGoods);
+                  $('.input-number_minus').on('click', minusGoods);
+                  $('.btnDelGoods').on('click', delGoodsCart);
+                  $('.btnDone').on('click', orderGoods);
     } 
+
+    
+
+    function plusGoods(){
+            let articul = $(this).attr('plus');
+        cart[articul]++;
+        localStorage.setItem('cart',JSON.stringify(cart));
+        showCart();
+    }
+    function minusGoods(){
+        let articul = $(this).attr('minus');
+        cart[articul]--;
+         if (cart[articul] ===0) {
+            delete cart[articul];
+        }
+        localStorage.setItem('cart',JSON.stringify(cart));
+        showCart();
+    }
+
+    function delGoodsCart(){
+        let articul = $(this).attr('btnDel');
+        delete cart[articul];
+         showCart();
+         localStorage.setItem('cart',JSON.stringify(cart));
+    
+
+    }
+    function orderGoods(){
+        
+         window.location.href ='file:///home/artem/test/sayt/order.html';
+    }
+
+      $(document).ready(function(){
+        checkCart();
+        showCart();
+        $('.logo').click(function() {
+        window.location.href ='file:///home/artem/test/sayt/index.html';
+    });
+      });
