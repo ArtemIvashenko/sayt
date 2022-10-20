@@ -10,6 +10,7 @@ padding-right: 80px;
     width: 960px;
 }
 .cheburFoto {
+    display: block;
     width: 300px;
     height: 300px;
     padding-top: 20px; 
@@ -51,7 +52,7 @@ padding-right: 80px;
 
 
 .input-number {
-    display: block;
+    display: inline-block;
     align-items: center;
     background: #FFFFFF;
     border: 1px solid #E5E8EE;
@@ -142,7 +143,8 @@ header {
     margin: auto;
 }
 .slider {
-    width: 500px;
+    position: inherit;
+    width: 100%;
     height: 500px;
     display: inline-flex;
     margin-top: 20px;
@@ -190,9 +192,6 @@ header {
 .fotoCartGoods{
     width: 50px;
     height: 50px;
-    position: relative;
-    top: 40px;
-    padding: 25px;
 }
 .myCart {
     display: block;
@@ -200,13 +199,27 @@ header {
     margin: auto;
 }
 .cartgoods{
-    display: block;
+    display: none;
+    position: absolute;
+    right: 0px;
+    background: #ffe4c4c7;
+    overflow: auto;
+    height: 250px;
+    min-height: 170px;
+    font-size: 10px;
+    width: 260px;
+
 }
+.cartgoods{
+    padding: 5px;
+}
+
 h{
     display: inline;
 }
 h3{
-    display:inline;
+    display:inline-block;
+    width: 250px;
 }
 .done{
     margin: auto;
@@ -230,4 +243,40 @@ h3{
 .btnSlPrev{
     text-decoration: none;
     margin-right: 10px;
+}
+.selectCategorys{
+    padding: 50px;
+    padding-bottom: 10px;
+    display: none;
+    position: absolute;
+    background-color: #E5EFE2;
+    top: 0px;
+    border-radius: 5px;
+}
+.menu{
+    position: relative;
+    background-color: #e5efe2c4;
+    margin-bottom: 15px;
+    margin-top: 20px;
+    font-size: 20px;
+    border-radius: 2px;
+}
+.categorys{
+    list-style: none;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border: 2px black;
+}
+.categorys:hover{
+    color:  red;
+    cursor: pointer;
+}
+.menu, .cart, .logo, button:hover{
+    cursor: pointer;
+}
+.contact {
+    text-decoration: none;
+}
+.contactShop{
+    margin: auto;
 }
