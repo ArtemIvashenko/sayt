@@ -104,7 +104,7 @@ let goods =
         }
     } 
    
-   function showCart(){
+/*   function showCart(){
         let cartOut = '';
         let cartIm = 0;
 
@@ -126,7 +126,7 @@ let goods =
           $('.cartnumber').html(cartIm);
                   $('.input-number_minus').on('click', minusGoods);
                   $('.input-number_plus').on('click', plusGoods);
-    } 
+    } */
     function plusGoods(){
             let articul = $(this).attr('plus');
         cart[articul]++;
@@ -183,7 +183,7 @@ let goods =
 $(document).ready(function(){
     loadGoods();
     checkCart();
-    showCart();
+    //showCart();
     SelectCategory();
     menuCategorys();
 
@@ -219,7 +219,7 @@ $(document).ready(function(){
         let curryImage = $('.img.now');
         let curryImageIndex = $('.img.now').index();
         let prevImageIndex = curryImageIndex - 1;
-        let prevImage = $('.img').eq(prevImageIndex);
+        let prevImage = $('img').eq(prevImageIndex);
         curryImage.fadeOut(500);
         curryImage.removeClass('now');
         prevImage.fadeIn(500);
