@@ -158,8 +158,10 @@ let goods =
                 out+= '<button class ="btnCart" goods-art ="' +key+ '"> Добавить в корзину </button>';
                 out+= '</div>';
                 
-                }  
-
+                } 
+                if (articul == ''){
+                    return loadGoods();
+                }
             }
             out+= '</div>';
             $('.goods').html(out);

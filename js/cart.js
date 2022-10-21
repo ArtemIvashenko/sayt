@@ -132,13 +132,13 @@ let goods =
          window.location.href ='file:///home/artem/test/sayt/order.html';
     }
 
-      $(document).ready(function(){
-        checkCart();
-        showCart();
-        $('.logo').click(function() {
+$(document).ready(function(){
+    checkCart();
+    showCart();
+    $('.logo').click(function() {
         window.location.href ='file:///home/artem/test/sayt/index.html';
     });
-        $('#returnOrder').click(function() {
+    $('#returnOrder').click(function() {
         window.location.href ='file:///home/artem/test/sayt/index.html';
     });
-      });
+});
