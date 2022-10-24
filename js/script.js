@@ -178,6 +178,29 @@ let goods =
         });
     }
 
+    function searh (){
+        $('.searhBtn').click(function(){
+            let searhName = $('.searhName').val();
+            let out ='<div class ="chebur">';
+            for (let key in goods){
+                let nameGoods = goods[key]['name'];
+            
+            if (nameGoods.toLowerCase().includes(searhName.toLowerCase()) == true){
+                console.log(searhName.indexOf(goods[key]['name']));
+                out+= '<div class ="productCart">';
+                out+= '<h3>' + goods[key]['name'] + '</h3>';       
+                out+= '<p>' + goods[key]['description']+ '</p>';
+                out+= '<img class="cheburFoto" src="'+goods[key].images +'">';
+                out+= '<h> Цена :'+ goods[key]['cost'] + 'грн</h>';
+                out+= '<button class ="btnCart" goods-art ="' +key+ '"> Добавить в корзину </button>';
+                out+= '</div>';
+            } 
+        }
+        out+= '</div>';
+            $('.goods').html(out);
+        });
+        
+}
 
     
 $(document).ready(function(){
@@ -186,8 +209,11 @@ $(document).ready(function(){
     showCart();
     SelectCategory();
     menuCategorys();
+    searh();
 
-    
+    $('.searhName').keydown(function(){
+        searh();
+    });
 
     $('.cart').click(function() {
         if ($.isEmptyObject(cart)){
