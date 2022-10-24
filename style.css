@@ -5,8 +5,8 @@ background: black;
     display : block;
     text-align: -webkit-center;
     margin: auto;
-    width: 960px;
     color:  whitef;
+    max-width: 1260px;
 }
 .cheburFoto {
     display: block;
@@ -128,7 +128,7 @@ header {
 .conteiner {
     width: 100%;
     margin: auto;
-    max-width: 960px;
+    max-width: 1200px;
 }
 /*a {
     color: black;

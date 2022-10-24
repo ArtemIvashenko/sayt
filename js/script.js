@@ -49,16 +49,16 @@ let goods =
         "description": "Coca-cola 0.5l",
         "category": "water",
         "images": "img/cola.jpg"
+    },
+    "19568": {
+        "name": "Hugarden",
+        "cost": 100,
+        "description": "Пиво Hugarden 0.5l",
+        "category": "water",
+        "images": "img/hugarden.jpg"
     }
 };
-/*let category = {
-    "eat": {
-        "category": "eat"
-    },
-    "water": {
-        "category":"water"
-    }
-}*/
+
 
     function loadGoods(){
         let out ='<div class ="chebur">';
@@ -211,17 +211,16 @@ $(document).ready(function(){
     menuCategorys();
     searh();
 
-    $('.searhName').keydown(function(){
-        searh();
-    });
-
     $('.cart').click(function() {
         if ($.isEmptyObject(cart)){
             alert('Корзина пуста');
             return;
         }
-
         window.location.href ='file:///home/artem/test/sayt/cart.html';
+    });
+
+    $('.logo').click(function() {
+        window.location.href ='file:///home/artem/test/sayt/index.html';
     });
     
     
