@@ -293,3 +293,24 @@ footer{
 #searhName{
     margin: auto;
 }
+.img. cart{
+    background: red;
+}
+.messageAddToCart{
+    color: white;
+    display: none;
+    position: fixed;
+    top: 300px;
+    left: 500px;
+    font-size: 24px;
+    background: green;
+    border-radius: 6px;
+    width: 290px;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+}
+.searhString{
+    color: white;
+
+}

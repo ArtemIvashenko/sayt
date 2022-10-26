@@ -1,91 +1,33 @@
-let cart = {};
-let goods = 
-        {
-    "12568" : {
-        "name": "Чебурек с телятиной",
-        "cost": 65,
-        "description":"Чебурек с телятиной",
-        "category": "eat",
-        "images":"img/cheburek.jpg"
-    },
-    "13568" : {
-        "name": "Чебурек со свининой",
-        "cost": 65,
-        "description":"Чебурек со свинины",
-        "category": "eat",
-        "images":"img/cheburek.jpg"
-    },
-    "14568" : {
-        "name": "Чебурек с курицей",
-        "cost": 65,
-        "description":" Чебурек с филе курици",
-        "category": "eat",
-        "images":"img/cheburek.jpg"
-    },
-    "15568" : {
-        "name": "Сыр",
-        "cost": 10,
-        "description":"Добавление сыра",
-        "category": "eat",
-        "images":"img/chees.jpg" 
-    },
-    "16568" : {
-        "name": "Соус острый",
-        "cost": 10,
-        "description":"Соус красный 70грм",
-        "category": "eat",
-        "images":"img/sousred.jpg" 
-    },
-    "17568" : {
-        "name": "Соус чесночный",
-        "cost": 10,
-        "description":"Соус чесночный 70грм",
-        "category": "eat",
-        "images":"img/sousWhite.jpg" 
-    },
-    "18568": {
-        "name": "Coca-cola",
-        "cost": 30,
-        "description": "Coca-cola 0.5l",
-        "category": "water",
-        "images": "img/cola.jpg"
-    },
-    "19568": {
-        "name": "Hugarden",
-        "cost": 100,
-        "description": "Пиво Hugarden 0.5l",
-        "category": "water",
-        "images": "img/hugarden.jpg"
-    }
-};
-
 
     function loadGoods(){
+        
         let out ='<div class ="chebur">';
-
             for (let key in goods){
-                
-
-
-                out+= '<div class ="productCart">';
-                out+= '<h3>' + goods[key]['name'] + '</h3>'; 
+                out+= '<div class ="productCart" >';
+                out+= '<h3 data-id = "' +key+ '">' + goods[key]['name'] + '</h3>'; 
                 out+= '<p>' + goods[key]['description']+ '</p>';
                 out+= '<img class="cheburFoto" src="'+goods[key].images +'">';
                 out+= '<h> Цена :'+ goods[key]['cost'] + 'грн</h>';
                 out+= '<button class ="btnCart" goods-art ="' +key+ '"> Добавить в корзину </button>';
                 out+= '</div>';
-            
-              //  console.log(out);
-              //  console.log(goods);
-             
-
+                result.push(goods[key]);
             }
         out+= '</div>';
+        return out;
+    
+    }
+    
+    let result = [];
+   
+ //   console.log(result);
+    function loadHtml(){
+       //let result = loadGoods();
 
-        $('.goods').html(out);
+        $('.goods').html(loadGoods());
         $('.btnCart').on('click',addToCart);
         
     }
+   
     
     function addToCart(){
          let articul = $(this).attr('goods-art');
@@ -95,14 +37,18 @@ let goods =
          } else {
              cart[articul] = 1;
          }
-         localStorage.setItem('cart',JSON.stringify(cart));
+         user.localStorageSet();
+        
         showCart();
+
+
+
     }       
-    function checkCart(){
+  /*  function user.checkCart(){
         if (localStorage.getItem('cart') !==null) {
             cart = JSON.parse(localStorage.getItem('cart'));
         }
-    } 
+    } */
    
    function showCart(){
         let cartOut = '';
@@ -124,24 +70,9 @@ let goods =
           
           
           $('.cartnumber').html(cartIm);
-                  $('.input-number_minus').on('click', minusGoods);
-                  $('.input-number_plus').on('click', plusGoods);
+                 
     } 
-    function plusGoods(){
-            let articul = $(this).attr('plus');
-        cart[articul]++;
-        localStorage.setItem('cart',JSON.stringify(cart));
-        showCart();
-    }
-    function minusGoods(){
-        let articul = $(this).attr('minus');
-        cart[articul]--;
-         if (cart[articul] ===0) {
-            delete cart[articul];
-        }
-        localStorage.setItem('cart',JSON.stringify(cart));
-        showCart();
-    }
+   
     function SelectCategory(){
         
         $('.categorys').click(function() {
@@ -149,7 +80,7 @@ let goods =
         console.log(articul);
             let out ='<div class ="chebur">';
              for (let key in goods){
-                if (goods[key]['category']== articul) {
+                if (goods[key]['category'] == articul) {
                     out+= '<div class ="productCart">';
                 out+= '<h3>' + goods[key]['name'] + '</h3>';       
                 out+= '<p>' + goods[key]['description']+ '</p>';
@@ -186,7 +117,6 @@ let goods =
                 let nameGoods = goods[key]['name'];
             
             if (nameGoods.toLowerCase().includes(searhName.toLowerCase()) == true){
-                console.log(searhName.indexOf(goods[key]['name']));
                 out+= '<div class ="productCart">';
                 out+= '<h3>' + goods[key]['name'] + '</h3>';       
                 out+= '<p>' + goods[key]['description']+ '</p>';
@@ -197,20 +127,64 @@ let goods =
             } 
         }
         out+= '</div>';
-            $('.goods').html(out);
+             $('.goods').html(out);
+        $('.btnCart').on('click',addToCart);
         });
         
-}
+    }
+
+    function messageAddToCart (){
+           $('.btnCart').click(function(){
+                $('.messageAddToCart').fadeIn(2000);
+                $('.messageAddToCart').fadeOut(1500);            
+           }); 
+        }
+    function searhDiv (){
+        let out = '';
+        $('.searhName').keydown(function(){
+            let searhName = $('.searhName').val();
+            
+            for (let key in goods){
+                let nameGoods = goods[key]['name'];
+                 
+                
+                if (nameGoods.toLowerCase().includes(searhName.toLowerCase()) == true){
+                    out = '<div class ="searhString">'+ nameGoods +'</div>';
+                    
+                    //$('.searhString').show();
+                } 
+            }
+            $('.searhString').html(out);
+        });
+        
+    }    
+    function openGoods(){
+        let out ='';
+        
+        $('h3').click(function(){
+            let articul = $(this).attr('data-id');
+            console.log(goods[articul]);
+            alert(goods[articul]);
+            for (goods[articul] in goods){
+                console.log(goods[articul]);
+            }
+        })
+    }
+    
 
     
 $(document).ready(function(){
     loadGoods();
-    checkCart();
+    loadHtml();
+    user.checkCart();
     showCart();
     SelectCategory();
     menuCategorys();
     searh();
-
+    messageAddToCart();
+    searhDiv();
+    openGoods();
+    
     $('.cart').click(function() {
         if ($.isEmptyObject(cart)){
             alert('Корзина пуста');

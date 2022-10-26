@@ -1,67 +1,16 @@
-let cart = {};
+class Cart {
 
-let goods = 
-        {
-    "12568" : {
-        "name": "Чебурек с телятиной",
-        "cost": 65,
-        "description":"Чебурек с телятиной",
-        "category": "eat",
-        "images":"img/cheburek.jpg"
-    },
-    "13568" : {
-        "name": "Чебурек со свининой",
-        "cost": 65,
-        "description":"Чебурек со свинины",
-        "category": "eat",
-        "images":"img/cheburek.jpg"
-    },
-    "14568" : {
-        "name": "Чебурек с курицей",
-        "cost": 65,
-        "description":" Чебурек с филе курици",
-        "category": "eat",
-        "images":"img/cheburek.jpg"
-    },
-    "15568" : {
-        "name": "Сыр",
-        "cost": 10,
-        "description":"Добавление сыра",
-        "category": "eat",
-        "images":"img/chees.jpg" 
-    },
-    "16568" : {
-        "name": "Соус острый",
-        "cost": 10,
-        "description":"Соус красный 70грм",
-        "category": "eat",
-        "images":"img/sousred.jpg" 
-    },
-    "17568" : {
-        "name": "Соус чесночный",
-        "cost": 10,
-        "description":"Соус чесночный 70грм",
-        "category": "eat",
-        "images":"img/sousWhite.jpg" 
-    },
-    "18568": {
-        "name": "Coca-cola",
-        "cost": 30,
-        "description": "Coca-cola 0.5l",
-        "category": "water",
-        "images": "img/cola.jpg"
-    }
-};
-    function checkCart(){
+
+    checkCart(){
         if (localStorage.getItem('cart') !==null) {
             cart = JSON.parse(localStorage.getItem('cart'));
         }
     } 
-    console.log(cart);
     
-    function showCart(){
+    
+    showCart(){
         let cartIm = 0;
-       if ($.isEmptyObject(cart)){
+            if ($.isEmptyObject(cart)){
         $('.myCart').html('Корзина пуста');
         $('.cartnumber').html(cartIm);
        } else {
@@ -95,46 +44,48 @@ let goods =
                
                    $('.cartnumber').html(cartIm);
                   $('.myCart').html(cartOut);
-                  $('.input-number_plus').on('click', plusGoods);
-                  $('.input-number_minus').on('click', minusGoods);
-                  $('.btnDelGoods').on('click', delGoodsCart);
-                  $('.btnDone').on('click', orderGoods);
+                  $('.input-number_plus').on('click', user.plusGoods);
+                  $('.input-number_minus').on('click', user.minusGoods);
+                  $('.btnDelGoods').on('click', user.delGoodsCart);
+                  $('.btnDone').on('click', user.orderGoods);
     } 
 }
     
 
-    function plusGoods(){
+    plusGoods(){
             let articul = $(this).attr('plus');
         cart[articul]++;
-        localStorage.setItem('cart',JSON.stringify(cart));
-        showCart();
+        user.localStorageSet();
+        user.showCart();
     }
-    function minusGoods(){
+    minusGoods(){
         let articul = $(this).attr('minus');
         cart[articul]--;
          if (cart[articul] ===0) {
-            delete cart[articul];
+            user.delGoodsCart();
         }
-        localStorage.setItem('cart',JSON.stringify(cart));
-        showCart();
+        user.localStorageSet();
+        user.showCart();
     }
 
-    function delGoodsCart(){
+    delGoodsCart(){
         let articul = $(this).attr('btnDel');
-        delete cart[articul];
-         showCart();
-         localStorage.setItem('cart',JSON.stringify(cart));
-    
-
+         delete cart[articul];
+         user.showCart();
+         user.localStorageSet();
     }
-    function orderGoods(){
+    orderGoods(){
         
          window.location.href ='file:///home/artem/test/sayt/order.html';
     }
-
+    localStorageSet(){
+        localStorage.setItem('cart',JSON.stringify(cart));
+    }
+}
+let user = new Cart();
 $(document).ready(function(){
-    checkCart();
-    showCart();
+    user.checkCart();
+    user.showCart();
     $('.logo').click(function() {
         window.location.href ='file:///home/artem/test/sayt/index.html';
     });
