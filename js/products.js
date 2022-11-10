@@ -6,7 +6,7 @@ let goods =
         "cost": 65,
         "description":"Чебурек с телятиной",
         "category": "eat",
-        "images":"img/cheburek.jpg"
+        "images":"img/photoP.jpg"
     },
        {
         "id":"13568" ,
@@ -14,7 +14,7 @@ let goods =
         "cost": 65,
         "description":"Чебурек со свинины",
         "category": "eat",
-        "images":"img/cheburek.jpg"
+        "images":"img/photoP.jpg"
     },
         {
         "id":"14568" ,
@@ -22,7 +22,7 @@ let goods =
         "cost": 65,
         "description":" Чебурек с филе курици",
         "category": "eat",
-        "images":"img/cheburek.jpg"
+        "images":"img/photoP.jpg"
     },
         {
         "id":"15568" ,

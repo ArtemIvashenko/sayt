@@ -1,7 +1,7 @@
 class Cart {
 
 
-    checkCart(){
+    check(){
         if (localStorage.getItem('cart') !==null) {
             cart = JSON.parse(localStorage.getItem('cart'));
         }
@@ -44,10 +44,10 @@ class Cart {
                
                    $('.cartnumber').html(cartIm);
                   $('.myCart').html(cartOut);
-                  $('.input-number_plus').on('click', user.plusGoods);
-                  $('.input-number_minus').on('click', user.minusGoods);
-                  $('.btnDelGoods').on('click', user.delGoodsCart);
-                  $('.btnDone').on('click', user.orderGoods);
+                  $('.input-number_plus').on('click', cartUser.plusGoods);
+                  $('.input-number_minus').on('click', cartUser.minusGoods);
+                  $('.btnDelGoods').on('click', cartUser.delGoodsCart);
+                  $('.btnDone').on('click', cartUser.orderGoods);
     } 
 }
     
@@ -55,24 +55,24 @@ class Cart {
     plusGoods(){
             let articul = $(this).attr('plus');
         cart[articul]++;
-        user.localStorageSet();
-        user.showCart();
+        cartUser.localStorageSet();
+        cartUser.showCart();
     }
     minusGoods(){
         let articul = $(this).attr('minus');
         cart[articul]--;
          if (cart[articul] ===0) {
-            user.delGoodsCart();
+            cartUser.delGoodsCart();
         }
-        user.localStorageSet();
-        user.showCart();
+        cartUser.localStorageSet();
+        cartUser.showCart();
     }
 
     delGoodsCart(){
         let articul = $(this).attr('btnDel');
          delete cart[articul];
-         user.showCart();
-         user.localStorageSet();
+         cartUser.showCart();
+         cartUser.localStorageSet();
     }
     orderGoods(){
         
@@ -82,10 +82,12 @@ class Cart {
         localStorage.setItem('cart',JSON.stringify(cart));
     }
 }
-let user = new Cart();
+
+let cartUser = new Cart();
+
 $(document).ready(function(){
-    user.checkCart();
-    user.showCart();
+    cartUser.check();
+    cartUser.showCart();
     $('.logo').click(function() {
         window.location.href ='file:///home/artem/test/sayt/index.html';
     });

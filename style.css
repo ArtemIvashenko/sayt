@@ -1,5 +1,6 @@
 body {
-background: black;
+background-image: url("img/fon1.jpg");
+background-size: cover;
 }
 .chebur {
     display : block;
@@ -82,7 +83,6 @@ background: black;
     user-select: none;
 }
 .btnCart {
-    background: green;
     margin-top: 20px;
     border-radius: 10px;
     padding-top: 5px;
@@ -90,6 +90,9 @@ background: black;
     font-weight: bold;
     display: block;
     margin-bottom: 10px;
+    color: white;
+    background: black;
+    border: 4px inset white;
     
 }
 .ingrid {
@@ -104,9 +107,9 @@ background: black;
     font-weight: bold;
     font-size: 16px;
     margin-left: 20px;
-    border-style: ridge;
     border-radius: 20px;
     margin-top: 20px;
+    background: black;
 } 
 .countCart {
     font: black;
@@ -120,7 +123,6 @@ background: black;
 header {
     width: 100%;
     display: flex;
-    background: grey;
     max-width: 1360px;
     margin: auto;
 
@@ -128,7 +130,8 @@ header {
 .conteiner {
     width: 100%;
     margin: auto;
-    max-width: 1200px;
+    max-width: 1360px;
+    position: relative;
 }
 /*a {
     color: black;
@@ -142,37 +145,58 @@ header {
     margin: auto;
 }
 .slider {
-    position: inherit;
+    position: relative;
     width: 100%;
     height: 500px;
     display: inline-flex;
     margin-top: 20px;
     margin: auto;
+    max-width: 1380px;
 }
-.img.now {
+.imgSl.now {
     display: block;
+    margin: auto;
 }
-.img {
+.imgSl {
     display: none;
 }
-.sliderfoto {
-    width: 800px;
+#sliderfoto.now {
+    width: 600px;
     height: 450px
+    
 }
+#sliderfoto {
+    width: 600px;
+    height: 450px;
+    
+}
+
 .prev{
     padding-left: 50px;
-    margin: auto;
+    margin: auto 0;
+    position: absolute;
+    top: 250px;
+    left: 300px;
 }
 .next {
     padding-right: 50px;
-    margin: auto;
+    margin: auto 0;
+    position: absolute;
+    top: 250px;
+    right: 300px;
 }
 .cart {
     width:50px;
     height: 50px;
     margin: auto;
     position: relative;
-
+    border: 2px solid white;
+    border-radius: 25px;
+    background: white;
+}
+#cart{
+    width: 50px;
+    height: 50px;
 }
 .cartGoods.cartAdd {
     width: 450px;
@@ -236,8 +260,14 @@ h3{
     position: absolute;
     top: 0px;
     right: 1px;
-    color: red;
+    color: white;
     font-weight: bold;
+    border: 1px solid;
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    background: red;
 }
 .btnSlNext{
     text-decoration: none;
@@ -252,17 +282,20 @@ h3{
     padding-bottom: 10px;
     display: none;
     position: absolute;
-    background-color: #E5EFE2;
-    top: 0px;
+    background-color: #343932;
+    top: 20px;
     border-radius: 5px;
+    color: white;
+    opacity: 0.8;
 }
 .menu{
     position: relative;
-    background-color: #e5efe2c4;
     margin-bottom: 15px;
     margin-top: 20px;
     font-size: 20px;
     border-radius: 2px;
+    z-index: 10000;
+    color: white;
 }
 .categorys{
     list-style: none;
@@ -274,11 +307,16 @@ h3{
     color:  red;
     cursor: pointer;
 }
+.menu:hover{
+    color:  red;
+    cursor: pointer;
+}
 .menu, .cart, .logo, button:hover{
     cursor: pointer;
 }
 .contact {
     text-decoration: none;
+    color: white;
 }
 .contactShop{
     margin: auto;
@@ -292,6 +330,7 @@ footer{
 }
 #searhName{
     margin: auto;
+    display: flex;
 }
 .img. cart{
     background: red;
@@ -310,7 +349,30 @@ footer{
     text-align: center;
     padding-top: 10px;
 }
-.searhString{
+.searhName{
+    background: grey;
+    border-radius: 5px;
+    height: 35px;
     color: white;
+    font-size: 20px;
+}
+input::placeholder{
+    color: white;
+    opacity: 0.7;
+}
+.searhBtn{
+    background: black;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 17px;
+    color: white;
+    font-weight: bold;
 
+}
+.prevIcon{
+    width: 20px;
+    height: 20px;
+}
+.descriptionGoods{
+    opacity: 0.8;
 }
