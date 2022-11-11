@@ -122,9 +122,7 @@ background-size: cover;
 }
 header {
     width: 100%;
-    display: flex;
-    max-width: 1360px;
-    margin: auto;
+    z-index: 10000;
 
 }
 .conteiner {
@@ -192,7 +190,7 @@ header {
     position: relative;
     border: 2px solid white;
     border-radius: 25px;
-    background: white;
+    background: #60cb1e;
 }
 #cart{
     width: 50px;
@@ -292,10 +290,11 @@ h3{
     position: relative;
     margin-bottom: 15px;
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 22px;
     border-radius: 2px;
     z-index: 10000;
     color: white;
+    font-weight: bold;
 }
 .categorys{
     list-style: none;
@@ -306,6 +305,7 @@ h3{
 .categorys:hover{
     color:  red;
     cursor: pointer;
+    text-decoration: underline;
 }
 .menu:hover{
     color:  red;
@@ -313,6 +313,7 @@ h3{
 }
 .menu, .cart, .logo, button:hover{
     cursor: pointer;
+
 }
 .contact {
     text-decoration: none;
@@ -323,10 +324,10 @@ h3{
 }
 footer{
     width: 100%;
-    max-width: 1360px;
+    max-width: 1920px;
     background: greenyellow;
     display: flex;
-    margin: auto;
+    margin: auto ;
 }
 #searhName{
     margin: auto;
@@ -375,4 +376,22 @@ input::placeholder{
 }
 .descriptionGoods{
     opacity: 0.8;
+}
+
+
+.topScroll{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+}
+
+.menuBar{
+    width: 100%;
+    display: flex;
+    max-width: 1920px;
+    margin: auto;
+    z-index: 10000;
 }

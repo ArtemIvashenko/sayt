@@ -196,7 +196,7 @@ $(document).ready(function(){
     nextSlider();
     prevSlider();
     searhDiv();
-    setInterval(listSliderInfinity, 10000);
+    //setInterval(listSliderInfinity, 10000);
     $('.btnCart').on({
         mouseenter: function(){
             $(this).css('color', 'red');
@@ -216,10 +216,31 @@ $(document).ready(function(){
     $('.logo').click(function() {
         window.location.href ='file:///home/artem/test/sayt/index.html';
     });
-  
-    
+
+    $(window).scroll(function(){
+        if ($(document).scrollTop() > 150){
+            $('.topScroll').fadeIn();
+            }else {
+                $('.topScroll').fadeOut();
+            }
+        
+    });
+
+    $('.topScroll').click(function(){
+        $(document).scrollTop(0);
+    });
+
+    $(window).scroll(function(){
+        if ($(document).scrollTop() > 250){
+            $('header').css({'position': ' fixed',  'background': 'green', });
+        }if ($(document).scrollTop() < 50){
+            $('header').css({'position': ' ',  'background': '', });
+        }
+    })
     
 
+  
+  
 
 });
 
