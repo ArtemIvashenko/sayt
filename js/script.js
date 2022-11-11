@@ -232,9 +232,9 @@ $(document).ready(function(){
 
     $(window).scroll(function(){
         if ($(document).scrollTop() > 250){
-            $('header').css({'position': ' fixed',  'background': 'green', });
+            $('.menuBar').css({'position': ' fixed',  'background': 'green', });
         }if ($(document).scrollTop() < 50){
-            $('header').css({'position': ' ',  'background': '', });
+            $('.menuBar').css({'position': 'relative ',  'background': '', });
         }
     })
     
