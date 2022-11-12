@@ -196,7 +196,7 @@ $(document).ready(function(){
     nextSlider();
     prevSlider();
     searhDiv();
-    //setInterval(listSliderInfinity, 10000);
+    setInterval(listSliderInfinity, 10000);
     $('.btnCart').on({
         mouseenter: function(){
             $(this).css('color', 'red');
