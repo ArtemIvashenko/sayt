@@ -239,7 +239,11 @@ $(document).ready(function(){
     })
     
 
-  
+  $(window).scroll(function(){
+    if ($(document).scrollTop() > 250){
+        $(document).scrollTop(470);
+    }
+  });
   
 
 });
