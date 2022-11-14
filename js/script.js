@@ -159,9 +159,11 @@
         let curryImageIndex = $('.now ').index()-1;
         let prevImageIndex = curryImageIndex - 1;
         let prevImage = $('.imgSl').eq(prevImageIndex);
-        curryImage.fadeOut(500);
+        curryImage.animate({
+            display :'none'
+            });
         curryImage.removeClass('now');
-        prevImage.fadeIn(200);
+        prevImage.animate({display: 'block'});
         prevImage.addClass('now');
     });
     }
@@ -171,13 +173,15 @@
         
         let nextImageIndex = curryImageIndex +1;
         let nextImage = $('.imgSl').eq(curryImageIndex);
-        curryImage.fadeOut(500);
+        curryImage.animate({
+            display :'none'
+            });
         curryImage.removeClass('now');        
             if (nextImageIndex == ($('.imgSl:last').index()+1)){
-                $('.imgSl').eq(0).fadeIn(200);
+                $('.imgSl').eq(0).animate({display: 'block'});
                 $('.imgSl').eq(0).addClass('now');
             } else {
-                nextImage.fadeIn(200);
+                nextImage.animate({display: 'block'});
                 nextImage.addClass('now');
             }
         
@@ -196,7 +200,7 @@ $(document).ready(function(){
     nextSlider();
     prevSlider();
     searhDiv();
-    setInterval(listSliderInfinity, 10000);
+   setInterval(listSliderInfinity, 10000);
     $('.btnCart').on({
         mouseenter: function(){
             $(this).css('color', 'red');
@@ -239,11 +243,7 @@ $(document).ready(function(){
     })
     
 
-  $(window).scroll(function(){
-    if ($(document).scrollTop() > 250){
-        $(document).scrollTop(470);
-    }
-  });
+  
   
 
 });
